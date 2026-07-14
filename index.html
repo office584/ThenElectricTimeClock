@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>OpenTimeClock</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+
+<body>
+
+<h1>OpenTimeClock</h1>
+
+<p>API Connection Test</p>
+
+
+<button onclick="testAPI()">
+Test Connection
+</button>
+
+
+<pre id="result"></pre>
+
+
+<script>
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzI2fTvZNcTtRU_g-P06lEvEEa3tvONCJaGHzKVR9s1Dj7VqI2cICE9tA4JdjCyEgCu/exec";
+
+
+async function testAPI(){
+
+
+    const request = {
+
+        action:"health"
+
+    };
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":"text/plain"
+                    },
+
+                    body:
+                    JSON.stringify(request)
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById("result")
+        .textContent =
+        JSON.stringify(
+            data,
+            null,
+            2
+        );
+
+
+    }
+
+
+    catch(error){
+
+
+        document.getElementById("result")
+        .textContent =
+        error;
+
+
+    }
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
