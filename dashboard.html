@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>
+OpenTimeClock Dashboard
+</title>
+
+
+</head>
+
+
+<body>
+
+
+<h1>
+OpenTimeClock
+</h1>
+
+
+<h2 id="employeeName"></h2>
+
+
+<h3>
+Current Status
+</h3>
+
+
+<div id="status">
+
+Loading...
+
+</div>
+
+
+<br>
+
+
+<button id="punchButton"
+onclick="punch()">
+
+Loading...
+
+</button>
+
+
+<br><br>
+
+
+<div>
+
+Shift Duration:
+
+<span id="duration">
+--
+
+</span>
+
+</div>
+
+
+<br>
+
+
+<div>
+
+Location:
+
+<span id="location">
+
+Waiting...
+
+</span>
+
+</div>
+
+
+
+<script src="js/api.js"></script>
+
+<script src="js/storage.js"></script>
+
+<script src="js/gps.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
