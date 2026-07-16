@@ -1,5 +1,5 @@
 /**
- * OpenTimeClock Dashboard
+ * Then Electric Time Clock Dashboard
  */
 
 

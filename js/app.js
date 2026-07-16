@@ -1,5 +1,5 @@
 /**
- * OpenTimeClock Application
+ * Then Electric Time Clock Application
  *
  * Main application logic.
  */

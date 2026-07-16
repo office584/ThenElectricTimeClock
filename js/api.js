@@ -1,5 +1,5 @@
 /**
- * OpenTimeClock API Module
+ * Then Electric Time Clock API Module
  *
  * Handles communication with
  * the Google Apps Script backend.

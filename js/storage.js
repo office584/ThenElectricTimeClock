@@ -1,5 +1,5 @@
 /**
- * OpenTimeClock Storage
+ * Then Electric Time Clock Storage
  *
  * Stores login information locally
  * on the device.
