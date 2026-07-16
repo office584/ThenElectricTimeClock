@@ -3,80 +3,61 @@
  */
 
 
-function getLocation(){
+function getLocation() {
 
+    return new Promise((resolve, reject) => {
 
-    return new Promise(
-
-        function(resolve,reject){
-
-
-            if(!navigator.geolocation){
-
-
-                reject(
-                    "GPS not supported"
-                );
-
-
-                return;
-
-            }
-
-
-
-            navigator.geolocation.getCurrentPosition(
-
-                function(position){
-
-
-                    resolve({
-
-                        latitude:
-                        position.coords.latitude,
-
-
-                        longitude:
-                        position.coords.longitude,
-
-
-                        accuracy:
-                        position.coords.accuracy
-
-
-                    });
-
-
-                },
-
-
-                function(error){
-
-
-                    reject(
-                        error.message
-                    );
-
-
-                },
-
-
-                {
-
-                    enableHighAccuracy:true,
-
-                    timeout:10000,
-
-                    maximumAge:0
-
-                }
-
-
-            );
-
-
+        if (!navigator.geolocation) {
+            reject("Geolocation is not supported by this browser.");
+            return;
         }
 
-    );
+        navigator.geolocation.getCurrentPosition(
+
+            (position) => {
+
+                resolve({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                    accuracy: position.coords.accuracy
+                });
+
+            },
+
+            (error) => {
+
+                let message;
+
+                switch (error.code) {
+
+                    case error.PERMISSION_DENIED:
+                        message = "PERMISSION_DENIED";
+                        break;
+
+                    case error.POSITION_UNAVAILABLE:
+                        message = "POSITION_UNAVAILABLE";
+                        break;
+
+                    case error.TIMEOUT:
+                        message = "TIMEOUT";
+                        break;
+
+                    default:
+                        message = error.message;
+                }
+
+                reject(message);
+
+            },
+
+            {
+                enableHighAccuracy: true,
+                timeout: 15000,
+                maximumAge: 0
+            }
+
+        );
+
+    });
 
 }
