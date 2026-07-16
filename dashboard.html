@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Then Electric Time Clock</title>
@@ -16,99 +15,62 @@
 }
 
 body{
-
     margin:0;
-
     background:#f3f5f8;
-
     font-family:Arial, Helvetica, sans-serif;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     min-height:100vh;
-
     padding:20px;
-
 }
 
 .dashboard-container{
-
     width:100%;
-
     max-width:500px;
-
     background:white;
-
     border-radius:18px;
-
     box-shadow:0 12px 30px rgba(0,0,0,.15);
-
     padding:35px;
-
     text-align:center;
-
 }
 
 .company-logo{
-
     display:block;
-
     width:240px;
-
     max-width:90%;
-
     margin:0 auto 25px auto;
-
     height:auto;
-
 }
 
 .app-title{
-
     margin:0 0 25px 0;
-
     color:#003C7D;
-
     font-size:2rem;
-
 }
 
 #employeeName{
-
     margin-bottom:25px;
-
     color:#444;
-
 }
 
 .section-title{
-
     font-size:1.2rem;
-
     font-weight:bold;
-
     color:#666;
-
     margin-bottom:10px;
-
 }
 
 #status{
-
     font-size:2rem;
-
     font-weight:bold;
-
     color:#009933;
-
     margin-bottom:25px;
-
 }
 
+/* ===== Punch Button ===== */
+
+button,
 #punchButton{
 
     width:100%;
@@ -119,94 +81,67 @@ body{
 
     font-weight:bold;
 
-    background:#0057B8;
+    color:#ffffff !important;
 
-    color:white;
+    background:#0057B8 !important;
 
-    border:none;
+    border:none !important;
 
-    border-radius:8px;
+    border-radius:10px;
 
     cursor:pointer;
 
-    transition:.2s;
-
 }
 
+button:hover,
 #punchButton:hover{
 
-    background:#004899;
+    background:#004899 !important;
 
 }
 
 .info{
-
     margin-top:25px;
-
     padding-top:20px;
-
     border-top:1px solid #ddd;
-
     text-align:left;
-
     line-height:1.8;
-
     font-size:1.05rem;
-
 }
 
 .info strong{
-
     color:#003C7D;
-
 }
 
 #location{
-
     word-break:break-word;
-
 }
 
 @media (max-width:600px){
 
     body{
-
         background:white;
-
         padding:12px;
-
         align-items:flex-start;
-
     }
 
     .dashboard-container{
-
         box-shadow:none;
-
         border-radius:0;
-
         padding:18px;
-
         max-width:100%;
-
     }
 
     .company-logo{
-
         width:220px;
-
     }
 
     .app-title{
-
         font-size:1.8rem;
-
     }
 
     #status{
-
         font-size:1.8rem;
-
     }
 
 }
@@ -236,12 +171,8 @@ body{
         Loading...
     </div>
 
-    <button
-        id="punchButton"
-        onclick="punch()">
-
+    <button id="punchButton" onclick="punch()">
         Loading...
-
     </button>
 
     <div class="info">
