@@ -107,77 +107,47 @@ async function loadStatus(){
 
 
 
-async function punch(){
+async function punch() {
 
+    try {
 
-    const location =
-        await getLocation();
-document
-.getElementById("location")
-.innerHTML =
+        const location = await getLocation();
 
-location.latitude.toFixed(6)
-+
-", "
-+
-location.longitude.toFixed(6)
-+
-"<br>Accuracy: "
-+
-Math.round(location.accuracy)
-+
-" meters";
+        document.getElementById("location").innerHTML =
+            location.latitude.toFixed(6) +
+            ", " +
+            location.longitude.toFixed(6) +
+            "<br>Accuracy: " +
+            Math.round(location.accuracy) +
+            " meters";
 
-
-    const result =
-        await callAPI(
-
+        const result = await callAPI(
             "punch",
-
             {
-
-
-                phone:
-                employee.Phone,
-
-
-                latitude:
-                location.latitude,
-
-
-                longitude:
-                location.longitude,
-
-
-                accuracy:
-                location.accuracy,
-
-
-                device:
-                navigator.userAgent
-
-
+                phone: employee.Phone,
+                latitude: location.latitude,
+                longitude: location.longitude,
+                accuracy: location.accuracy,
+                device: navigator.userAgent
             }
-
         );
 
+        if (result.success) {
 
+            loadStatus();
 
-    if(result.success){
+        } else {
 
+            alert(result.error);
 
-        loadStatus();
+        }
 
+    } catch (error) {
+
+        alert("Punch failed:\n\n" + error);
+
+        console.error(error);
 
     }
-
-    else{
-
-
-        alert(result.error);
-
-
-    }
-
 
 }
