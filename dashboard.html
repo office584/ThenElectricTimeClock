@@ -1,118 +1,268 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Then Electric Time Clock</title>
+<title>Then Electric Time Clock</title>
 
-    <style>
-    .company-logo {
-    display: block;
-    width: 300px;
-        max-width: 90%;
-        height: auto;
-        margin: 20px auto 25px auto;
+<style>
+
+*{
+    box-sizing:border-box;
 }
 
-    .app-title {
-        font-size: 2.6rem;
-        font-weight: bold;
-        text-align: center;
-        margin: 15px 0 35px 0;
-}
-body {
-    font-size: 1.2rem;
+body{
+
+    margin:0;
+
+    background:#f3f5f8;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:20px;
+
 }
 
-button {
-    font-size: 1.4rem;
-    padding: 15px 30px;
+.dashboard-container{
+
+    width:100%;
+
+    max-width:500px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+    padding:35px;
+
+    text-align:center;
+
 }
 
-input {
-    font-size: 1.3rem;
-    padding: 12px;
+.company-logo{
+
+    display:block;
+
+    width:240px;
+
+    max-width:90%;
+
+    margin:0 auto 25px auto;
+
+    height:auto;
+
 }
-    </style>
+
+.app-title{
+
+    margin:0 0 25px 0;
+
+    color:#003C7D;
+
+    font-size:2rem;
+
+}
+
+#employeeName{
+
+    margin-bottom:25px;
+
+    color:#444;
+
+}
+
+.section-title{
+
+    font-size:1.2rem;
+
+    font-weight:bold;
+
+    color:#666;
+
+    margin-bottom:10px;
+
+}
+
+#status{
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    color:#009933;
+
+    margin-bottom:25px;
+
+}
+
+#punchButton{
+
+    width:100%;
+
+    padding:18px;
+
+    font-size:1.4rem;
+
+    font-weight:bold;
+
+    background:#0057B8;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#punchButton:hover{
+
+    background:#004899;
+
+}
+
+.info{
+
+    margin-top:25px;
+
+    padding-top:20px;
+
+    border-top:1px solid #ddd;
+
+    text-align:left;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+
+}
+
+.info strong{
+
+    color:#003C7D;
+
+}
+
+#location{
+
+    word-break:break-word;
+
+}
+
+@media (max-width:600px){
+
+    body{
+
+        background:white;
+
+        padding:12px;
+
+        align-items:flex-start;
+
+    }
+
+    .dashboard-container{
+
+        box-shadow:none;
+
+        border-radius:0;
+
+        padding:18px;
+
+        max-width:100%;
+
+    }
+
+    .company-logo{
+
+        width:220px;
+
+    }
+
+    .app-title{
+
+        font-size:1.8rem;
+
+    }
+
+    #status{
+
+        font-size:1.8rem;
+
+    }
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<img 
-    src="images/then-electric-logo.jpg"
-    class="company-logo"
-    alt="Then Electric Logo">
+<div class="dashboard-container">
 
-<h1 class="app-title">Then Electric Time Clock</h1>
+    <img
+        src="images/then-electric-logo.jpg"
+        class="company-logo"
+        alt="Then Electric Logo">
 
+    <h1 class="app-title">Then Electric Time Clock</h1>
 
-<h2 id="employeeName"></h2>
+    <h2 id="employeeName"></h2>
 
+    <div class="section-title">
+        Current Status
+    </div>
 
-<h3>
-Current Status
-</h3>
+    <div id="status">
+        Loading...
+    </div>
 
+    <button
+        id="punchButton"
+        onclick="punch()">
 
-<div id="status">
+        Loading...
 
-Loading...
+    </button>
 
-</div>
+    <div class="info">
 
+        <div>
+            <strong>Shift Duration:</strong>
+            <span id="duration">--</span>
+        </div>
 
-<br>
+        <div style="margin-top:12px;">
+            <strong>Location:</strong><br>
+            <span id="location">Waiting...</span>
+        </div>
 
-
-<button id="punchButton"
-onclick="punch()">
-
-Loading...
-
-</button>
-
-
-<br><br>
-
-
-<div>
-
-Shift Duration:
-
-<span id="duration">
---
-
-</span>
+    </div>
 
 </div>
-
-
-<br>
-
-
-<div>
-
-Location:
-
-<span id="location">
-
-Waiting...
-
-</span>
-
-</div>
-
-
 
 <script src="js/api.js"></script>
-
 <script src="js/storage.js"></script>
-
 <script src="js/gps.js"></script>
-
 <script src="js/dashboard.js"></script>
 
 </body>
